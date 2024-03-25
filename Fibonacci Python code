@@ -3,3 +3,6 @@ def myfib2(n):
     while b < n:
           print(b)
           a, b = b, a+b
+
+
+%% myfib2(n)   <---Input any number as n %%
