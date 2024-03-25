@@ -1,21 +1,28 @@
-fun fibonacci n =
-  if n < 3 then
-    1
-  else
-    fibonacci (n-1) + fibonacci (n-2)
+syms f n 
 
-fun aux n =
-  if n > 16 then
-    print "\n"
-  else (
-    print (Int.toString (fibonacci n) ^ ", ");
-    aux (n + 1)
-  );
-aux 1;
+% Define the number of terms to calculate
+n = 20;
 
-fun fibonacci () = 
-   let
-      fun fib(a,b) = Cons(a+b, fn() => fib(b,a+b))
-   in
-      Cons(0, fn()=> fib(0,1))
-   end  
+% Initialize the first two Fibonacci numbers
+f(1) = 1;
+f(2) = 1;
+
+% Calculate the remaining Fibonacci numbers using a loop
+for i = 3:n
+  f(i) = f(i-1) + f(i-2);
+end
+
+% Generate the x-axis (term number)
+x = 1:n;
+
+% Plot the Fibonacci sequence
+plot(x, f)
+
+% Add labels and title to the plot
+xlabel('Term Number')
+ylabel('Fibonacci Number')
+title('Fibonacci Sequence')
+
+% Display the calculated Fibonacci numbers
+disp('Fibonacci Numbers:')
+disp(f)
